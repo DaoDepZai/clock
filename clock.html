@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đồng hồ realtime</title>
+<style>
+    body { font-family: Arial; font-size: 22px; font-weight: bold; padding: 10px; }
+</style>
+<script>
+function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString("vi-VN", { hour12: false });
+    const day = now.getDate();
+    const month = now.getMonth() + 1;
+    const year = now.getFullYear();
+    document.getElementById("clock").textContent =
+        `${time} | Ngày ${day} Tháng ${month} Năm ${year}`;
+}
+setInterval(updateClock, 1000);
+</script>
+</head>
+<body onload="updateClock()">
+    <div id="clock"></div>
+</body>
+</html>
